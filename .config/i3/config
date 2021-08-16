@@ -1,0 +1,400 @@
+#	 _   _              _              _
+#	| | | |  ___  _ __ | |_  ___    __| |
+#	| |_| | / _ \| '__|| __|/ _ \  / _` |
+#	|  _  ||  __/| |   | |_| (_) || (_| |
+#	|_| |_| \___||_|    \__|\___/  \__,_|
+
+# ----------
+# mod key
+# ----------
+set $mod Mod4
+set $alt Mod1
+
+# ----------
+# font
+# ----------
+font pango: "JetBrainsMono Nerd Font Bandit Medium 8"
+font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+
+# ----------
+# mouse
+# ----------
+floating_modifier	$mod
+
+# ----------
+# term
+# ----------
+bindsym $alt+Return exec urxvt
+bindsym $mod+Return exec urxvt
+
+# ----------
+# exit app
+# ----------
+bindsym $mod+Shift+q kill
+
+# ----------
+# move
+# ----------
+bindsym $mod+Up focus up
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Right move right
+
+# ----------
+# split
+# ----------
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+# ----------
+# orient
+# ----------
+default_orientation horizontal
+
+# ----------
+# fullscreen
+# ----------
+bindsym $mod+f fullscreen toggle
+
+# ----------
+# layout dev
+# ----------
+workspace_layout default
+
+# ----------
+# layout
+# ----------
+bindsym $mod+w layout tabbed
+bindsym $mod+s layout stacking
+bindsym $mod+e layout toggle split
+
+# ----------
+# floating
+# ----------
+bindsym $mod+space focus mode_toggle
+bindsym $mod+Shift+space floating toggle
+
+# ----------
+# parent
+# ----------
+bindsym $mod+a focus parent
+
+# -----------
+# move tab
+# -----------
+bindsym $mod+Tab workspace next
+bindsym $alt+Tab workspace prev
+
+# -----------
+# scratchpad
+# -----------
+bindsym $mod+minus move scratchpad
+bindsym $alt+minus [class="^.*"] scratchpad show
+
+# ----------
+# workspace
+# ----------
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# ----------
+# switch
+# ----------
+bindsym $mod+1 workspace $ws1 
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# ----------
+# move
+# ----------
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# Browser
+assign [class="qutebrowser"]                       	$ws1
+assign [class="Qutebrowser"]                       	$ws1
+assign [class="brave-browser"]                       	$ws1
+assign [class="Brave-browser"]                       	$ws1
+
+# Terminal
+assign [class="urxvt"]                      		$ws2
+assign [class="URxvt"]                      		$ws2
+
+# File Manager
+assign [class="thunar"] 		                $ws3
+assign [class="Thunar"]                     		$ws3
+assign [class="engrampa"] 		                $ws3
+assign [class="Engrampa"] 		                $ws3
+
+# Musik
+assign [class="pavucontrol"]               		$ws4
+assign [class="Pavucontrol"]               		$ws4
+
+# Video
+assign [class="mpv"] 		                	$ws5
+assign [class="SimpleScreenRecorder"] 		  	$ws5
+
+# Sosmed
+assign [class="KotatogramDesktop"]	        	$ws6
+assign [class="kotatogram-desktop"]          		$ws6
+
+# Mail
+assign [class="		"]                		$ws7
+
+# Work
+assign [class="Gimp"]					$ws8
+assign [class="leafpad"]                    		$ws8
+assign [class="Leafpad"]                    		$ws8
+assign [class="winbox64.exe"]               		$ws8
+
+# Misc
+assign [class="Virt-manager"]            		$ws9
+assign [class="TeamViewer"]                     	$ws9
+
+# Spotify
+assign [class="Spotify"] 	                      	$ws10
+for_window [class="Spotify"] move to workspace  	$ws10 
+
+# ----------
+# float
+# ----------
+floating_minimum_size 	75 x 50
+floating_maximum_size 	-1 x -1
+
+# ----------
+# list float
+# ----------
+for_window [class="mpv"] 				floating enable
+for_window [class="sxiv"] 				floating enable
+for_window [class="urxvt"] 				floating enable
+for_window [class="URxvt"] 				floating enable
+for_window [class="iwgtk"] 				floating enable
+for_window [class="Iwgtk"] 				floating enable
+for_window [class="arandr"] 				floating enable
+for_window [class="Arandr"] 				floating enable
+for_window [class="thunar"] 				floating enable
+for_window [class="Thunar"] 				floating enable
+for_window [class="spotify"] 				floating enable
+for_window [class="Spotify"] 				floating enable
+for_window [class="engrampa"] 				floating enable
+for_window [class="Engrampa"] 				floating enable
+for_window [class="pavucontrol"] 			floating enable
+for_window [class="Pavucontrol"] 			floating enable
+for_window [class="virt-manager"] 			floating enable
+for_window [class="Virt-manager"] 			floating enable
+for_window [class="blueman-manager"] 			floating enable
+for_window [class="Blueman-manager"] 			floating enable
+for_window [class="kotatogram-desktop"]			floating enable
+for_window [class="KotatogramDesktop"]			floating enable
+for_window [class="SimpleScreenRecorder"]		floating enable
+for_window [class="Virtual Machine Manager"]		floating enable
+
+# ----------
+# position
+# ----------
+for_window [class="mpv"]				move absolute position center
+for_window [class="sxiv"]				move absolute position center
+for_window [class="urxvt"] 				move absolute position center
+for_window [class="URxvt"] 				move absolute position center
+for_window [class="iwgtk"]				move absolute position center
+for_window [class="Iwgtk"]				move absolute position center
+for_window [class="arandr"]				move absolute position center
+for_window [class="Arandr"]				move absolute position center
+for_window [class="thunar"]				move absolute position center
+for_window [class="Thunar"]				move absolute position center
+for_window [class="spotify"]				move absolute position center
+for_window [class="Spotify"]				move absolute position center
+for_window [class="engrampa"]				move absolute position center
+for_window [class="Engrampa"]				move absolute position center
+for_window [class="pavucontrol"] 			move absolute position center
+for_window [class="Pavucontrol"] 			move absolute position center
+for_window [class="virt-manager"]			move absolute position center
+for_window [class="Virt-manager"]			move absolute position center
+for_window [class="blueman-manager"]			move absolute position center
+for_window [class="Blueman-manager"]			move absolute position center
+for_window [class="kotatogram-desktop"]			move absolute position center
+for_window [class="KotatogramDesktop"]			move absolute position center
+for_window [class="SimpleScreenRecorder"]		move absolute position center
+for_window [class="Virtual Machine Manager"]		move absolute position center
+
+# -----------
+# style
+# -----------
+# bindsym $mod+y border none
+# bindsym $mod+t border normal 0
+# bindsym $mod+Shift+y border pixel 2
+# bindsym $mod+Shift+t border normal 2
+
+# -----------
+# syntax
+# -----------
+title_align left
+
+# -----------
+# i3 gaps
+# -----------
+for_window [class   = "^.*"] border pixel 0
+for_window [title   = "^.*"] border pixel 0
+gaps inner 10
+gaps outer -2
+gaps top 25
+gaps bottom 0
+
+# -----------
+# i3 title
+# -----------
+for_window [class   = ".*"] title_format "%title  ⋯  %class"
+
+# ----------
+# reload
+# ----------
+bindsym $mod+Shift+c reload
+
+# ----------
+# restart i3
+# ----------
+bindsym $mod+Shift+r restart
+
+# ----------
+# resize
+# ----------
+mode "resize" {
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# ----------
+# color
+# ----------
+set $bg-color               	#88C0D0
+set $text-color             	#002B00
+set $border-color           	#88C0D0
+set $inactive-bg-color      	#88C0D0
+set $inactive-text-color    	#657B83
+set $urgent-bg-color        	#88C0D0
+set $urgent-text-color      	#FFFFFF
+set $indicator              	#FFAF00
+
+client.focused           	$bg-color           	$bg-color           	$text-color           	$indicator
+client.unfocused         	$inactive-bg-color  	$inactive-bg-color  	$inactive-text-color  	$indicator
+client.focused_inactive  	$inactive-bg-color  	$inactive-bg-color  	$inactive-text-color  	$indicator
+client.urgent            	$urgent-bg-color    	$urgent-bg-color    	$urgent-text-color    	$indicator
+
+# -----------
+# brightness
+# -----------
+bindsym XF86MonBrightnessUp	exec --no-startup-id ~/.local/bin/script/Brightness/up.sh &
+bindsym XF86MonBrightnessDown	exec --no-startup-id ~/.local/bin/script/Brightness/down.sh &
+
+# -----------
+# Audio
+# -----------
+bindsym XF86AudioRaiseVolume	exec --no-startup-id pamixer --increase 10 &
+bindsym XF86AudioLowerVolume	exec --no-startup-id pamixer --decrease 10 &
+bindsym XF86AudioMute		exec --no-startup-id pamixer --toggle-mute &
+
+# -----------
+# startup
+# -----------
+	# -----------
+	# unclutter
+	# -----------
+	exec_always --no-startup-id unclutter &
+
+	# -----------
+	# audio
+	# -----------
+	exec_always --no-startup-id pulseaudio --start &
+
+	# -----------
+	# polybar
+	# -----------
+	exec_always --no-startup-id ~/.config/polybar/launch.sh &
+  
+	# -----------
+	# xautolock
+	# -----------
+	exec_always --no-startup-id ~/.local/bin/script/Lock/xautolock.sh &
+
+	# -----------
+	# dunst
+	# -----------
+	exec_always --no-startup-id dunst --config ~/.config/dunst/dunstrc &
+
+	# -----------
+	# picom
+	# -----------
+	exec_always --no-startup-id picom --config ~/.config/picom/picom.conf &
+
+	# -----------
+	# wallpaper
+	# -----------
+	exec_always --no-startup-id feh --no-fehbg --bg-scale -Z ~/Pictures/Wallpapers/neo-japan-2202-4k-7c.jpg &
+
+# -----------
+# rofi cast
+# -----------
+	# -----------
+	# screenshot
+	# -----------
+	bindsym $mod+Print		exec --no-startup-id ~/.local/bin/script/Maim/maim.rb &
+
+	# -----------
+	# openvpn
+	# -----------
+	bindsym $mod+Shift+v            exec --no-startup-id ~/.config/rofi/scripts/openvpn.sh &
+
+	# -----------
+	# menu
+	# -----------
+	bindsym $mod+d		        exec --no-startup-id ~/.config/rofi/scripts/launcher.sh &
+
+	# -----------
+	# power menu
+	# -----------
+	bindsym $mod+Shift+e            exec --no-startup-id ~/.config/rofi/scripts/powermenu.sh &
+
+# -----------
+# dunst keys
+# -----------
+bindsym $alt+Left			exec --no-startup-id dunstctl history-pop
+bindsym $alt+Down			exec --no-startup-id dunstctl context
+bindsym $alt+Up 			exec --no-startup-id dunstctl close
+bindsym $alt+Right			exec --no-startup-id dunstctl close-all

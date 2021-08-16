@@ -1,0 +1,253 @@
+# ╱╱╱╭╮
+# ╱╱╱┃┃
+# ╭━━┫┃╭┳━━┳━━╮
+# ┃╭╮┃┃┣┫╭╮┃━━┫
+# ┃╭╮┃╰┫┃╭╮┣━━┃
+# ╰╯╰┻━┻┻╯╰┻━━╯
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+if command -v "sudo" &>/dev/null; then
+    PRIV="sudo"
+elif command -v "doas" &>/dev/null; then
+    PRIV="doas"
+else
+    printf "\e[1;31m > error:\e[0m sudo or doas not found!\n" >&2
+fi
+
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+# paru
+alias arain='paru -S'
+alias arasyy='paru -Syy'
+alias arasyu='paru -Syu'
+alias clean-ara='paru -Scc'
+alias details-ara='paru -Si'
+
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+# pacman
+alias pacin='$PRIV pacman -S'
+alias pacsyu='$PRIV pacman -Syu'
+alias pacsyy='$PRIV pacman -Syy' 
+alias clean-pac='$PRIV pacman -Scc'
+alias details-pac='$PRIV pacman -Si'
+
+
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+# clean cache package
+alias unlock='$PRIV rm /var/lib/pacman/db.lck'
+alias cleanup='$PRIV pacman -Rns $(pacman -Qtdq)'
+
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+# list directory
+alias l.='exa -a | egrep "^\."'
+alias ls='exa -lgh --icons --group-directories-first'
+alias la='exa -lgha --icons --group-directories-first'
+alias ll='exa -l --color=always --group-directories-first'
+
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+# mirrorlist update
+alias mirror="$PRIV reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist-arch"
+alias mirrora="$PRIV reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist-arch"
+alias mirrord="$PRIV reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist-arch"
+alias mirrors="$PRIV reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist-arch"
+
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+# gak jelas 1
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+alias df='df -h'
+alias free='free -h'
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+# gak jelas 2
+alias vi='vim'
+alias et='exit'
+alias cr='clear'
+alias tn='telnet'
+alias rr='ranger'
+alias lp='leafpad'
+alias pp='pipes.sh'
+alias nf='neofetch'
+alias ic='ifconfig'
+alias rl='~/.local/bin/reload-bash'
+
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+# translate-cli
+alias trans-je='trans -b :@ja'
+alias trans-en='trans -b :@en'
+alias trans-ja='trans -b :@jv'
+alias trans-id='trans -b :@id'
+alias trans-ru='trans -b :@ru'
+
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+# crypto stats
+alias btc-stats='bitcoin-chart-cli'
+alias btc-stats-now='watch -n 60 bitcoin-chart-cli --mins 30 --width 60'
+
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+# send ICMP to host / ping
+alias ping='ping -c 10'
+alias pg-99='ping -c 10 9.9.9.9'
+alias pg-rt='ping -c 10 reddit.com'
+
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+# doas
+alias dosu='doas -s'
+alias doas-edit='$PRIV vim'
+alias bundir-user='$PRIV loginctl kill-user $USER'
+
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+# short edit
+alias edit-bh='vim ~/.bashrc'
+alias edit-i3='vim ~/.config/i3/config'
+alias edit-dn='vim ~/.config/dunst/dunstrc'
+alias edit-ab='vim ~/.config/bash/etc/bash_alias'
+alias edit-nf='vim ~/.config/neofetch/config.conf'
+
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+# short remove files
+alias rm-rc='rm -rf ~/Videos/Record/*'
+alias rm-ss='rm -rf ~/Pictures/Screenshots/*'
+alias rm-hs='rm -rf ~/.bash_history && touch ~/.bash_history'
+
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+# reloaded configurations
+alias rl-rv='$PRIV resolvconf -u'
+alias rl-mk='$PRIV mkinitcpio -P'
+alias rl-xb='xrdb -load ~/.Xresources'
+
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+# gak jelas 3
+alias htop='$PRIV htop'
+alias gpd='$PRIV gparted'
+alias release='lsb_release -a'
+alias bebas-menu='$PRIV bebasid menu'
+alias update-font='$PRIV fc-cache -rv'
+alias cuaca="curl v2d.wttr.in/karangampel"
+alias lsblk="lsblk --output=NAME,FSTYPE,SIZE,TYPE,LABEL,MOUNTPOINT"
+
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+# runit status manager
+alias stop='$PRIV rsm stop'
+alias start='$PRIV rsm start'
+alias status='$PRIV rsm status'
+alias restart='$PRIV rsm restart'
+
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+# gak jelas 4
+alias jam-ty='tty-clock -c -b -D'
+alias downgrade='$PRIV downgrade --ala-url "https://archive.artixlinux.org"'
+
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+# esp tools
+alias esp-flash='$PRIV esptool.py flash_id'
+alias esp-push='$PRIV esptool.py --port /dev/ttyUSB0 write_flash'
+
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+# camera
+alias mcam='mpv av://v4l2:/dev/video0 --profile=low-latency --untimed'
+
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+# youtube-dl
+alias ytv-best="youtube-dl -f bestvideo+bestaudio "
+alias yta-m4a="youtube-dl --extract-audio --audio-format m4a "
+alias yta-mp3="youtube-dl --extract-audio --audio-format mp3 "
+alias yta-wav="youtube-dl --extract-audio --audio-format wav "
+alias yta-aac="youtube-dl --extract-audio --audio-format aac "
+alias yta-best="youtube-dl --extract-audio --audio-format best "
+alias yta-flac="youtube-dl --extract-audio --audio-format flac "
+alias yta-opus="youtube-dl --extract-audio --audio-format opus "
+alias yta-vorbis="youtube-dl --extract-audio --audio-format vorbis "
+
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+# yacy
+alias kill-yacy='$PRIV /opt/yacy/killYACY.sh'
+alias stop-yacy='$PRIV /opt/yacy/stopYACY.sh'
+alias start-yacy='$PRIV /opt/yacy/startYACY.sh'
+alias update-yacy='$PRIV /opt/yacy/updateYACY.sh'
+
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+# dhcp
+alias dhcp-eth='$PRIV dhclient eth0'
+alias dhcp-usb='$PRIV dhclient usb0'
+alias dhcp-wlan='$PRIV dhclient wlan0'
+
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+# set up network mode
+alias ip-up-eth='$PRIV ip link set eth0 up'
+alias ip-up-usb='$PRIV ip link set usb0 up'
+alias ip-up-wlan='$PRIV ip link set wlan0 up'
+
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+# set down network mode
+alias ip-down-eth='$PRIV ip link set eth0 down'
+alias ip-down-usb='$PRIV ip link set usb0 down'
+alias ip-down-wlan='$PRIV ip link set wlan0 down'
+
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+# smart tools
+alias hdd-all='$PRIV smartctl --all /dev/sda'
+alias hdd-info='$PRIV smartctl --info /dev/sda'
+alias hdd-health='$PRIV smartctl --health /dev/sda'
+
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+# toybox
+alias panes='${HOME}/.config/color-toys/panes'
+alias bloks='${HOME}/.config/color-toys/bloks'
+alias pipes1='${HOME}/.config/color-toys/pipes1'
+alias pipes2='${HOME}/.config/color-toys/pipes2'
+alias colorview='${HOME}/.config/color-toys/colorview'
+alias colorbars='${HOME}/.config/color-toys/colorbars'
+alias colortest='${HOME}/.config/color-toys/colortest'
+alias pipes2-slim='${HOME}/.config/color-toys/pipes2-slim'
+alias 256colors2='${HOME}/.config/color-toys/256colors2.pl'
+alias colortest-slim='${HOME}/.config/color-toys/colortest-slim'
+
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+# clean ram
+alias clean-ram="$PRIV sh -c 'sync; echo 3 > /proc/sys/vm/drop_caches'"
+
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+# ARCHIVE EXTRACTION
+# usage: ex <file>
+ex ()
+{
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1   ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *.deb)       ar x $1      ;;
+      *.tar.xz)    tar xf $1    ;;
+      *.tar.zst)   unzstd $1    ;;
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+# git
+alias tag='git tag'
+alias stat='git status'
+alias fetch='git fetch'
+alias clone='git clone'
+alias addup='git add -u'
+alias addall='git add .'
+alias branch='git branch'
+alias newtag='git tag -a'
+alias commit='git commit -m'
+alias pull='git pull origin'
+alias push='git push origin'
+alias checkout='git checkout'

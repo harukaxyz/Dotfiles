@@ -1,0 +1,7 @@
+!---------------------------------------------------------------------------
+! Xresource Set
+!---------------------------------------------------------------------------
+#include "/home/hertod/.urxvt/config/urxvt"
+#include "/home/hertod/.urxvt/config/layout"
+#include "/home/hertod/.urxvt/colors/nerd-theme"
+

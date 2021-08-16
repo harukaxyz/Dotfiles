@@ -1,0 +1,83 @@
+!---------------------------------------------------------------------------
+! Urxvt Set
+!---------------------------------------------------------------------------
+
+! Transparent
+! URxvt.transparent:                  true
+! URxvt.shading:                      10
+
+! URXVT APPEARANCE
+URxvt.geometry:                     90x20
+URxvt.internalBorder:               18
+URxvt.cursorBlink:                  true
+URxvt.cursorUnderline:              true
+URxvt.saveline:                     82768
+URxvt.scrollBar:                    false
+URxvt.scrollBar_right:              false
+URxvt.scrollBar_floating:           false
+URxvt.scrollstyle:                  plain
+URxvt.urgentOnBell:                 false
+URxvt.depth:                        32
+URxvt.iso14755:                     false
+URxvt.locale: 			    true
+
+! Uncomment if to much font spacing
+! URxvt.iconFile:                    disable
+URxvt.lineSpace:                    -1
+URxvt.letterSpace:                  -1
+
+! URXVT EXTENSIONS
+URxvt.perl-ext-common:              default,clipboard,url-select,tabbedex
+
+! TABBEDEX
+URxvt.tabbedex.no-tabbedex-keys:    yes
+URxvt.tabbedex.new-button:          no
+URXvt.tabbedex.reopen-on-close:     yes
+URxvt.tabbedex.autohide:            yes
+URxvt.tabbedex.tabbar-fg:           5
+URxvt.tabbedex.tabbar-bg:           0
+URxvt.tabbedex.tab-fg:              10
+URxvt.tabbedex.tab-bg:              0
+URxvt.tabbedex.bell-fg:             0
+URxvt.tabbedex.bell-bg:             0
+URxvt.tabbedex.bell-tab-fg:         0
+URxvt.tabbedex.bell-tab-bg:         0
+URxvt.tabbedex.title-fg:            14
+URxvt.tabbedex.title-bg:            0
+URxvt.keysym.Control-Shift-T:       perl:tabbedex:new_tab
+URxvt.keysym.Control-Shift-R:       perl:tabbedex:rename_tab
+URxvt.keysym.Control-Shift-Q:       perl:tabbedex:kill_tab
+URxvt.keysym.Control-Next:          perl:tabbedex:next_tab
+URxvt.keysym.Control-Prior:         perl:tabbedex:prev_tab
+URxvt.keysym.Control-Shift-Next:    perl:tabbedex:move_tab_right
+URxvt.keysym.Control-Shift-Prior:   perl:tabbedex:move_tab_left
+
+! FONT
+URxvt.resize-font.step:             1
+URxvt.keysym.Control-minus:         resize-font:smaller
+URxvt.keysym.Control-plus:          resize-font:bigger
+URxvt.keysym.Control-equal:         resize-font:reset
+URxvt.keysym.Control-question:      resize-font:show
+
+URxvt.allow_bold:             	    true
+URxvt.font:                         xft:JetBrainsMono Nerd Font Bandit:style=Bold:pixelsize=10:antialias=true:hinting=true
+
+! CLIPBOARD
+URxvt.clipboard.copycmd:            xclip -i -selection clipboard
+URxvt.clipboard.pastecmd:           xclip -o -selection clipboard
+URxvt.keysym.Control-C:             perl:clipboard:copy
+URxvt.keysym.Control-V:             perl:clipboard:paste
+
+! URL
+URxvt.keysym.M-u:                   perl:url-select:select_next
+URvxt.url-select.button:            1
+URxvt.url-select.launcher:          qutebrowser
+URxvt.url-select.underline:         true
+
+!! Common Keybinds for Navigations
+URxvt.keysym.Shift-Up:              command:\033]720;1\007
+URxvt.keysym.Shift-Down:            command:\033]721;1\007
+URxvt.keysym.Control-Up:            \033[1;5A
+URxvt.keysym.Control-Down:          \033[1;5B
+URxvt.keysym.Control-Right:         \033[1;5C
+URxvt.keysym.Control-Left:          \033[1;5D

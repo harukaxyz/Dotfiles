@@ -1,0 +1,18 @@
+configuration {
+  	show-icons:           	true;
+  	icon-theme:           	"Papirus";
+  	display-drun: 		"";
+  	drun-display-format:  	"{name}";
+  	disable-history:      	false;
+  	fullscreen:           	false;
+	hide-scrollbar: 	true;
+	sidebar-mode: 		false;
+}
+
+@import "~/.config/rofi/themes/nord.rasi"
+
+element-icon {
+    size:                      	0px;
+    border:                    	0px;
+}
+
