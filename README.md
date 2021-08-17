@@ -1,2 +1,2 @@
-# Artix-Backup
+# Dotfiles
 my backup artix dotfiles
